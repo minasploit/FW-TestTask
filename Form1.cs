@@ -9,6 +9,7 @@ namespace FW_TestTask
     public partial class Form1 : Form
     {
         public new List<string> Events = new List<string>();
+        private const string SeriesName = "Minutes Spent";
 
         public Form1()
         {
@@ -20,6 +21,8 @@ namespace FW_TestTask
             base.OnLoad(e);
             
             chart1.Titles.Add("Time spent on each event");
+
+            startDateTime.Value = startDateTime.Value.AddDays(-7);
         }
 
         private void btnGetEvents_Click(object sender, EventArgs e)
@@ -28,7 +31,7 @@ namespace FW_TestTask
 
             // clear existing data
             dgvEvents.Rows.Clear();
-            chart1.Series["Series1"].Points.Clear();
+            chart1.Series[SeriesName].Points.Clear();
 
             try
             {
@@ -53,7 +56,7 @@ namespace FW_TestTask
                     dgvEvents.Rows.Add(eventRow);
                     
                     // set the data on the chart
-                    chart1.Series["Series1"].Points.AddXY(oItem.Subject, oItem.Duration);
+                    chart1.Series[SeriesName].Points.AddXY($"{oItem.Subject}\n{oItem.Start:D}", oItem.Duration);
                 }
 
                 oNameSpace.Logoff();

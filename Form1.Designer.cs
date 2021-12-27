@@ -1,4 +1,6 @@
-﻿namespace FW_TestTask
+﻿using System.Windows.Forms.DataVisualization.Charting;
+
+namespace FW_TestTask
 {
     partial class Form1
     {
@@ -216,7 +218,8 @@
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Minutes Spent";
+            series1.ChartType = SeriesChartType.Column;
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(734, 342);
             this.chart1.TabIndex = 0;
@@ -253,8 +256,6 @@
 
         private System.Windows.Forms.DataGridView dgvEvents;
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -266,8 +267,6 @@
         private System.Windows.Forms.DateTimePicker startDateTime;
         private System.Windows.Forms.DateTimePicker endDateTime;
         private System.Windows.Forms.Button btnGetEvents;
-
-        private System.Windows.Forms.Button button1;
 
         private System.Windows.Forms.SplitContainer splitContainer1;
 
