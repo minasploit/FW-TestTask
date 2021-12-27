@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Outlook = Microsoft.Office.Interop.Outlook;
 
@@ -24,13 +18,17 @@ namespace FW_TestTask
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            
+            chart1.Titles.Add("Time spent on each event");
         }
 
         private void btnGetEvents_Click(object sender, EventArgs e)
         {
             ((Button)sender).Enabled = false;
 
+            // clear existing data
             dgvEvents.Rows.Clear();
+            chart1.Series["Series1"].Points.Clear();
 
             try
             {
@@ -49,9 +47,13 @@ namespace FW_TestTask
 
                 foreach (Outlook.AppointmentItem oItem in oItems)
                 {
+                    // set the data on the table
                     object[] eventRow =
                         { oItem.Subject, oItem.Start, new TimeSpan(0, oItem.Duration, 0).GetFriendlyName() };
                     dgvEvents.Rows.Add(eventRow);
+                    
+                    // set the data on the chart
+                    chart1.Series["Series1"].Points.AddXY(oItem.Subject, oItem.Duration);
                 }
 
                 oNameSpace.Logoff();
