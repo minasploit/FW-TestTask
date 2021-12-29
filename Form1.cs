@@ -11,7 +11,7 @@ namespace FW_TestTask
     {
         public new List<string> Events = new List<string>();
         private const string Chart1SeriesName = "Minutes Spent";
-        private const string Chart2SeriesName = "Series1";
+        private const string Chart2SeriesName = "Hours Spent";
 
         public Form1()
         {

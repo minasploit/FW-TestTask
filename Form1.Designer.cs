@@ -245,17 +245,18 @@ namespace FW_TestTask
             // 
             // chart2
             // 
+            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(9, 8);
+            this.chart2.Location = new System.Drawing.Point(3, 3);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Hours Spent";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(725, 334);
+            this.chart2.Size = new System.Drawing.Size(734, 342);
             this.chart2.TabIndex = 0;
             this.chart2.Text = "chart2";
             // 
