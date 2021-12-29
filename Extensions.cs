@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FW_TestTask
 {
@@ -15,6 +16,12 @@ namespace FW_TestTask
                 return $"{time.Minutes}:{time.Seconds:00} minutes";
             }
             return time.TotalSeconds >= 1 ? $"{time.Seconds} seconds" : $"{time.Milliseconds} milliseconds";
+        }
+        
+        public static IEnumerable<DateTime> DatesBetween(this DateTime from, DateTime to)
+        {
+            for(var day = from.Date; day.Date <= to.Date; day = day.AddDays(1))
+                yield return day;
         }
     }
 }
